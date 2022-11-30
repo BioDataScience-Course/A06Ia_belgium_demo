@@ -1,0 +1,7 @@
+﻿variable;label;unites;type;val. Manquantes;commentaire
+groupe_d_ages;Catégories d'ages;/;facteur;/;"3 niveaux : ""Moins de 18 ans"" ""De 18 à 64 ans""  ""65 ans et plus"""
+region;Régions;/;facteur;/;"1 niveau : ""Région de Bruxelles-Capitale"""
+sexe;Sexe;/;facteur;/;"2 niveaux : ""Femmes"" ""Hommes"""
+nationalite;Nationalité;/;facteur;/;"2 niveaux : ""Belges""  ""non-Belges"""
+population_au_1_janvier_2000;Densité de population;/;numérique;/;Variable qui dénombre la densité de population en 2000.
+…;;;;;

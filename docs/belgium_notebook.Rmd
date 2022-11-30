@@ -1,0 +1,8 @@
+---
+title: "Étude de la démographie en Belgique - Carnet de notes"
+author: "___"
+date: "___"
+output: html_document
+---
+
+<!--% Ce carnet de notes doit comprendre une courte introduction, ainsi que 15 à 20 graphiques ou tableaux qui doivent être commentés. Chaque graphiques doit avoir des labels et des unités des axes corrects. Le document doit être structuré en sections avec des titres informatifs. Il doit être compilable (bouton "Knit") sans erreurs. -->
