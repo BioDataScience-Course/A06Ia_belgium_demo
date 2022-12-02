@@ -5,4 +5,34 @@ date: "___"
 output: html_document
 ---
 
-<!--% Ce carnet de notes doit comprendre une courte introduction, ainsi que 15 à 20 graphiques ou tableaux qui doivent être commentés. Chaque graphiques doit avoir des labels et des unités des axes corrects. Le document doit être structuré en sections avec des titres informatifs. Il doit être compilable (bouton "Knit") sans erreurs. -->
+```{r setup}
+SciViews::R(lang = "fr")
+# Lecture des données
+pop <- read()
+```
+
+<!--% Reproduisez à l'identique les graphiques proposés ci-dessous.-->
+
+![](../figures/plot1.png)
+
+```{r plot1}
+
+```
+
+<!--% BONUS : Interprétez le graphique en 2 phrases. -->
+
+![](../figures/plot2.png)
+
+```{r plot2}
+
+```
+
+<!--% BONUS : Interprétez le graphique en 2 phrases. -->
+
+![](../figures/plot3.png)
+
+```{r plot3}
+
+```
+
+<!--% BONUS : Interprétez le graphique en 2 phrases. -->
