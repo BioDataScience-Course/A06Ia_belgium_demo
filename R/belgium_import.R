@@ -4,7 +4,7 @@
 #############################
 
 # Avant 2000 ------------------------------------------------------------------
-# lecture des trois tableau de données 
+# Lecture des trois tableau de données 
 ## Region Wallonne
 rw_av <- ___("data/region_wallonne_av_2000.csv")
 ## Region flamande
@@ -16,7 +16,7 @@ rb_av <- ___("data/region_bxl_av_2000.rds")
 av <- ___
 
 # Après 2000  ------------------------------------------------------------------
-# lecture des trois tableau de données 
+# Lecture des trois tableau de données 
 ## Region Wallonne
 rw_ap <- ___("data/region_wallonne_ap_2000.csv")
 ## Region flamande
@@ -35,7 +35,7 @@ population <- ___
 ## noms de variable year (pour l'année de la mesure) et number (pour le nombre d'individu)
 pop <- ___
 
-# rework variable 'year'
+# Modification de la variable 'year'
 pop <- smutate(pop, year = as.numeric(stringr::str_remove(year, "^population_au_01_janvier_")))
 
 # Sauvegarde des données retravaillées au format rds, et

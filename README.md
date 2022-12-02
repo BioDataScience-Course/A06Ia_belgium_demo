@@ -16,18 +16,18 @@ population entre 1992 et 2019. Dans le dossier `data`, vous retrouvez
 diverses informations relatives à la population belge dans six fichiers
 distincts :
 
--   `region\_bxl\_ap\_2000.rds` : recensement de la population de la
-    région de Bruxelles capitale à partir de l’année 2000.
--   `region\_bxl\_av\_2000.rds` : recensement de la population de la
-    région de Bruxelles capitale entre 1992 et 1999
--   `region\_flamande\_ap\_2000.xls` : recensement de la population de
-    la Région flamande à partir de l’année 2000
--   `region\_flamande\_av\_2000.xls` : recensement de la population de
-    la Région flamande entre 1992 et 1999
--   `region\_wallonne\_ap\_2000.csv` : recensement de la population de
-    la Région wallonne à partir de l’année 2000
--   `region\_wallonne\_av\_2000.csv` : recensement de la population de
-    la Région wallonne entre 1992 et 1999
+-   `region_bxl_ap_2000.rds` : recensement de la population de la région
+    de Bruxelles capitale à partir de l’année 2000.
+-   `region_bxl_av_2000.rds` : recensement de la population de la région
+    de Bruxelles capitale entre 1992 et 1999
+-   `region_flamande_ap_2000.xls` : recensement de la population de la
+    Région flamande à partir de l’année 2000
+-   `region_flamande_av_2000.xls` : recensement de la population de la
+    Région flamande entre 1992 et 1999
+-   `region_wallonne_ap_2000.csv` : recensement de la population de la
+    Région wallonne à partir de l’année 2000
+-   `region_wallonne_av_2000.csv` : recensement de la population de la
+    Région wallonne entre 1992 et 1999
 
 Un dictionnaire des données est également proposé à votre disposition.
 
