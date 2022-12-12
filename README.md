@@ -67,11 +67,23 @@ le script `R/belgium_import.R` obligatoirement.
 Dans le document `docs/belgium_notebook.Rmd`, reproduisez les graphiques
 demandées à l’identique.
 
-![](figures/plot1.png)
+``` r
+knitr::include_graphics("figures/plot1.png")
+```
 
-![](figures/plot2.png)
+![](figures/plot1.png)<!-- -->
 
-![](figures/plot3.png)
+``` r
+knitr::include_graphics("figures/plot2.png")
+```
+
+![](figures/plot2.png)<!-- -->
+
+``` r
+knitr::include_graphics("figures/plot3.png")
+```
+
+![](figures/plot3.png)<!-- -->
 
 Le template est associé au projet suivant :
 <https://github.com/BioDataScience-Course/A06Ia_belgium_demo>
