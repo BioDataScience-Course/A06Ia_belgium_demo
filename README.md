@@ -12,16 +12,16 @@ l’économie, la société et le territoire belge. Dans ce projet, vus avez
 entre 1992 et 2019 issues de ce site dans le dossier `data` et dans six
 fichiers distincts :
 
--   `region_bxl_ap_2000.rds` : région de Bruxelles capitale à partir de
-    l’année 2000.
--   `region_bxl_av_2000.rds` : région de Bruxelles capitale entre 1992
-    et 1999
--   `region_flamande_ap_2000.xls` : région flamande à partir de l’année
-    2000
--   `region_flamande_av_2000.xls` : région flamande entre 1992 et 1999
--   `region_wallonne_ap_2000.csv` : région wallonne à partir de l’année
-    2000
--   `region_wallonne_av_2000.csv` : région wallonne entre 1992 et 1999
+- `region_bxl_ap_2000.rds` : région de Bruxelles capitale à partir de
+  l’année 2000.
+- `region_bxl_av_2000.rds` : région de Bruxelles capitale entre 1992 et
+  1999
+- `region_flamande_ap_2000.xls` : région flamande à partir de l’année
+  2000
+- `region_flamande_av_2000.xls` : région flamande entre 1992 et 1999
+- `region_wallonne_ap_2000.csv` : région wallonne à partir de l’année
+  2000
+- `region_wallonne_av_2000.csv` : région wallonne entre 1992 et 1999
 
 Un dictionnaire des données est également mis à votre disposition :
 
@@ -42,42 +42,25 @@ knitr::kable(data.io::read$csv2("data/region_meta.csv"))
 Ce projet est un projet **individuel**, **court** et **cadré**. Il
 permettra de démontrer que vous avez acquis les compétences suivantes :
 
--   Comprendre des données à l’aide de métadonnées
--   Maîtriser l’importation de données dans différents formats
--   Être capable de remodeler des tableaux de données
--   Maîtriser la transformation des variables
--   Gérer les types de variables
--   Pouvoir combiner différents tableaux de données
+- Comprendre des données à l’aide de métadonnées
+- Maîtriser l’importation de données dans différents formats
+- Être capable de remodeler des tableaux de données
+- Maîtriser la transformation des variables
+- Gérer les types de variables
+- Pouvoir combiner différents tableaux de données
 
 ## Consignes
 
 Importez et remaniez les six tableaux de données afin de produire un
-tableau unique que vous allez sauvegarder dans votre projet (nom du
-fichier, format et dossier doivent être choisis de manière judicieuse).
-Ces étapes seront réalisées dans le script `R/belgium_import.R`
-obligatoirement.
+tableau unique que vous allez sauvegarder dans votre projet sous
+`data/belgium.rds`. Ces étapes seront réalisées dans le script
+`R/belgium_import.R` obligatoirement.
 
 Dans le document `docs/belgium_notebook.Rmd`, reproduisez les trois
 graphiques ci-dessous à l’identique (un remaniement des données est
-peut-être nécessaire pour y arriver.
+peut-être nécessaire pour y arriver).
 
-``` r
-knitr::include_graphics("figures/plot1.png")
-```
-
-![](figures/plot1.png)<!-- -->
-
-``` r
-knitr::include_graphics("figures/plot2.png")
-```
-
-![](figures/plot2.png)<!-- -->
-
-``` r
-knitr::include_graphics("figures/plot3.png")
-```
-
-![](figures/plot3.png)<!-- -->
+![](figures/plot1.png)<!-- -->![](figures/plot2.png)<!-- -->![](figures/plot3.png)<!-- -->
 
 Le template de ce projet est le suivant :
 <https://github.com/BioDataScience-Course/A06Ia_belgium_demo>

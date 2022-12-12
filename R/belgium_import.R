@@ -1,4 +1,4 @@
-# Importation, la transformation et la fusion des 6 tableaux
+# Importation, transformation et fusion des 6 tableaux
 # date : ___
 # auteur: ___ 
 #############################
@@ -27,11 +27,10 @@ rb_ap <- ___("data/region_bxl_ap_2000.rds")
 # Combinaison des trois tableau en un seul tableau
 ap <- ___
 
-# Recombinaison en un seul tableau de `av` (avant 2000) et de `ap` (après 2000)
-# Combiner les données avant et après 2000
+# Fusion en un seul tableau de `av` (avant 2000) et de `ap` (après 2000)
 population <- ___
 
-# Conversion du tableau large vers long 
+# Conversion du tableau large vers long
 ## noms de variable year (pour l'année de la mesure) et number (pour le nombre d'individu)
 pop <- ___
 

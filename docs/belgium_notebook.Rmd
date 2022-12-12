@@ -8,10 +8,10 @@ output: html_document
 ```{r setup}
 SciViews::R(lang = "fr")
 # Lecture des données
-pop <- read()
+pop <- read(___)
 ```
 
-<!--% Reproduisez à l'identique les graphiques proposés ci-dessous.-->
+<!--% Reproduisez à l'identique les graphiques ci-dessous.-->
 
 ![](../figures/plot1.png)
 
@@ -19,7 +19,7 @@ pop <- read()
 
 ```
 
-<!--% BONUS : Interprétez le graphique en 2 phrases. -->
+<!--% Interprétez le graphique ci-dessus en 2 phrases. -->
 
 ![](../figures/plot2.png)
 
@@ -27,7 +27,7 @@ pop <- read()
 
 ```
 
-<!--% BONUS : Interprétez le graphique en 2 phrases. -->
+<!--% Interprétez le graphique ci-dessus en 2 phrases. -->
 
 ![](../figures/plot3.png)
 
@@ -35,4 +35,4 @@ pop <- read()
 
 ```
 
-<!--% BONUS : Interprétez le graphique en 2 phrases. -->
+<!--% Interprétez le graphique ci-dessus en 2 phrases. -->
