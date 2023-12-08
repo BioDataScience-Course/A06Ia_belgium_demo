@@ -5,22 +5,9 @@ output: github_document
 
 <!--DO NOT EDIT README.md -->
 
-## Informations sur les données
+## Avant-propos
 
-L'office belge de statistique Statbel (<https://statbel.fgov.be/fr/propos-de-statbel>) diffuse des données sur l'économie, la société et le territoire belge. Dans ce projet, vus avez à votre disposition des données de recensement de la population belge entre 1992 et 2019 issues de ce site dans le dossier `data` et dans six fichiers distincts :
-
--   `region_bxl_ap_2000.rds` : région de Bruxelles capitale à partir de l'année 2000.
--   `region_bxl_av_2000.rds` : région de Bruxelles capitale entre 1992 et 1999
--   `region_flamande_ap_2000.xls` : région flamande à partir de l'année 2000
--   `region_flamande_av_2000.xls` : région flamande entre 1992 et 1999
--   `region_wallonne_ap_2000.csv` : région wallonne à partir de l'année 2000
--   `region_wallonne_av_2000.csv` : région wallonne entre 1992 et 1999
-
-Un dictionnaire des données est également mis à votre disposition :
-
-```{r, warning=FALSE, message=FALSE}
-knitr::kable(data.io::read$csv2("data/region_meta.csv"))
-```
+Ce projet nécessite d'avoir assimilé l'ensemble des notions du cinquième et du sixième modules du cours de Science des données biologiques I. Ce projet requiert également de maîtriser le deuxième et le troisième modules de ce cours afin de reproduire les graphiques demandés. Il correspond au dépôt GitHub <https://github.com/BioDataScience-Course/A06Ia_belgium_demo>. Il est distribué sous licence [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## Objectif
 
@@ -35,9 +22,7 @@ Ce projet est un projet **individuel**, **court** et **cadré**. Il permettra de
 
 ## Consignes
 
-Importez et remaniez les six tableaux de données afin de produire un tableau unique que vous allez sauvegarder dans votre projet sous `data/belgium.rds`. Ces étapes seront réalisées dans le script `R/belgium_import.R` obligatoirement.
-
-Dans le document `docs/belgium_notebook.Rmd`, reproduisez les trois graphiques ci-dessous à l'identique (un remaniement des données est peut-être nécessaire pour y arriver).
+Reproduisez à l'identique les 3 graphiques ci-dessous en complétant le document `belgium_notebook.qmd`. Les données à utiliser ne sont malheureusement pas proposées sous la forme d'un tableau unique. Vous avez à votre disposition 6 tableaux de données que vous allez devoir recombiner et retravailler afin d'obtenir un tableau unique vous permettant de réaliser les graphiques demandés.
 
 ```{r, echo=FALSE, fig.width=5}
 knitr::include_graphics("figures/plot1.png")
@@ -45,4 +30,25 @@ knitr::include_graphics("figures/plot2.png")
 knitr::include_graphics("figures/plot3.png")
 ```
 
-Le template de ce projet est le suivant : <https://github.com/BioDataScience-Course/A06Ia_belgium_demo>
+Compilez la version finale au format HTML. Vous avez une batterie de tests à votre disposition (onglet "Construire" -\> bouton "Construire tout") pour vérifier l'état de votre travail. Note : utilisez ces tests à la fin. Concentrez-vous d'abord sur vos analyses, puis faites un rendu final du document lorsque tout est complété, et seulement après, utilisez les tests. Il est contre-productif d'activer les tests à chaque nouvelle ligne de code ajoutée dans votre document ! **Afin d'éviter tout abus d'utilisation des tests, vous ne pouvez les utiliser que dix fois dans ce projet.**
+
+Assurez-vous que votre document Quarto compile sans erreurs à la fin de votre travail **(très important : un document qui ne compile pas sans erreur devra être sanctionné de manière importante)**. Vérifiez aussi à la fin que vos derniers commits ont bien été pushés sur GitHub.
+
+## Informations sur les données
+
+L'office belge de statistique Statbel (<https://statbel.fgov.be/fr/propos-de-statbel>) diffuse des données sur l'économie, la société et le territoire belge. Dans ce projet, vous avez à votre disposition des données de recensement de la population belge entre 1992 et 2023 issues de ce site (exportées le 3 décembre 2023) dans le dossier `data` et dans six fichiers distincts avec des formats variés :
+
+-   `bxl_1992-2009.xlsx` : Région de Bruxelles capitale de 1992 à 2009
+-   `bxl_2010-2023.xlsx` :  Région de Bruxelles capitale à partir de 2010
+-   `flamand_1992-2009.tsv.gz` : Région flamande de 1992 à 2009
+-   `flamand_2010-2023.tsv.gz` : Région flamande à partir de 2010
+-   `wallon_1992-2009.csv.xz` : Région wallonne de 1992 à 2009
+-   `wallon_2010-2023.csv.xz` : Région wallonne à partir de 2010
+
+Un dictionnaire des données est également mis à votre disposition :
+
+```{r, warning=FALSE, message=FALSE}
+knitr::kable(data.io::read$csv2("data/region_meta.csv"))
+```
+
+L'office belge de statistique Statbel explicite la licence associée via le lien suivant <https://statbel.fgov.be/sites/default/files/files/opendata/Licence%20open%20data_FR.pdf>
