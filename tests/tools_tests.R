@@ -1,7 +1,7 @@
 # Functions to test projects
 # Copyright (c) 2023, Philippe Grosjean (phgrosjean@sciviews.org) &
 #   Guyliann Engels (Guyliann.Engels@umons.ac.be)
-# Version 1.3.0
+# Version 1.4.0
 
 
 # Transformation functions ------------------------------------------------
@@ -81,10 +81,10 @@ record_res <- function(object_name = ".Last.chunk", name = object_name,
   data <- get0(object_name, envir = env)
   if (is.null(data))
     return(invisible(FALSE))
-
+  
   if (!is.null(fun))
     data <- try(fun(data, ...), silent = TRUE)
-
+  
   write_res(data, name = name, dir = dir)
   invisible(TRUE)
 }
@@ -195,7 +195,7 @@ read_ref <- function(name, ..., dir = ref_dir,
   attr(file, "solution") <- fs::path(dirname, solut_filename)
   saved_filename <- orig_filename <- paste0(basename, "_last_saved.", ext)
   attr(file, "last_saved") <- fs::path(dirname, saved_filename)
-
+  
   file
 }
 
@@ -296,7 +296,7 @@ prepare_files <- function(type = "original", remove_last_saved = FALSE,
       return(NULL)
     }
   }
-
+  
   prepare_one <- function(file) {
     dir <- dirname(file)
     # We need to remove the leading dot and "_original|_solution" in filename
@@ -334,7 +334,7 @@ encrypt_solutions <- function(key = NULL, error = TRUE) {
   }
   if (is.null(key))
     key <- set_key()
-
+  
   encrypt_one <- function(file) {
     dest_file <- paste0(file, ".aes")
     cyphr::encrypt_file(file, key = cyphr::key_openssl(key), dest = dest_file)
@@ -361,7 +361,7 @@ decrypt_solutions <- function(key = NULL, error = TRUE) {
   }
   if (is.null(key))
     key <- set_key()
-
+  
   decrypt_one <- function(file) {
     dest_file <- fs::path_ext_remove(file)
     cyphr::decrypt_file(file, key = cyphr::key_openssl(key), dest = dest_file)
@@ -433,11 +433,11 @@ is_data <- function(name, dir = "data", format = "rds", check_df = FALSE) {
   res <- try(data.io::read(data_path, type = format), silent = TRUE)
   if (inherits(res, "try-error"))
     return(structure(FALSE, message = res))
-
+  
   if (isTRUE(check_df) && !inherits(res, "data.frame"))
     return(structure(FALSE, message = paste0("The data file ", data_path,
       " is found but it does not contains a data frame.")))
-
+  
   # Everything is OK
   TRUE
 }
@@ -448,42 +448,42 @@ is_data_df <- function(name, dir = "data", format = "rds", check_df = TRUE)
 is_identical_to_ref <- function(name, part = NULL, attr = NULL) {
   ref <- read_ref(name) # Note: generate an error if the object does not exist
   res <- read_res(name) # Idem
-
+  
   if (!is.null(part)) {
     ref <- ref[[part]]
     res <- res[[part]]
   }
-
+  
   if (!is.null(attr)) {
     ref <- attr(ref, attr)
     res <- attr(res, attr)
   }
-
+  
   # Items cannot be NULL
   if (is.null(res) && is.null(ref))
     structure(FALSE, message = "Both res and ref are NULL")
-
+  
   identical(res, ref)
 }
 
 is_equal_to_ref <- function(name, part = NULL, attr = NULL) {
   ref <- read_ref(name) # Note: generate an error if the object does not exist
   res <- read_res(name) # Idem
-
+  
   if (!is.null(part)) {
     ref <- ref[[part]]
     res <- res[[part]]
   }
-
+  
   if (!is.null(attr)) {
     ref <- attr(ref, attr)
     res <- attr(res, attr)
   }
-
+  
   # Items cannot be NULL
   if (is.null(res) && is.null(ref))
     structure(FALSE, message = "Both res and ref are NULL")
-
+  
   all.equal(res, ref)
 }
 
@@ -575,6 +575,35 @@ sddReporter$public_methods$start_file <- function(name) {
   self$cat_line(cli::col_cyan(name))
 }
 
+# Limit the number of uses of the test
+test_dir <- function(path, reporter = sddReporter, times = 10L, ...) {
+  if (length(times) != 1 || !is.numeric(times) || times < 1L)
+    stop("times must be a positive integer")
+  if (fs::file_exists(".cnt")) {
+    cnt <- try(readLines(".cnt") |> as.integer(), silent = TRUE)
+    if (inherits(cnt, "try-error"))
+      cnt <- times
+  } else {
+    cnt <- times
+  }
+  if (cnt < 1L) {
+    cat("Désolé, vous avez épuisé vos ", times, " essais pour les tests !\n",
+      sep = "")
+    return(invisible())
+  }
+  # Decrement cnt, save and indicate how much is left
+  cnt <- cnt - 1L
+  writeLines(as.character(cnt), ".cnt")
+  if (cnt == 0L) {
+    cat("Attention : ceci est votre dernier essai pour les tests !\n",
+      sep = "")
+  } else {
+    cat("Il vous reste ", cnt, " essais pour les tests après celui-ci.\n",
+      sep = "")
+  }
+  # Run the tests
+  testthat::test_dir(path, reporter = reporter, ...)
+}
 
 # Functions for Quarto and R Markdown documents ---------------------------
 

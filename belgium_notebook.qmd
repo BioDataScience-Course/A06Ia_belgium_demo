@@ -1,5 +1,5 @@
 ---
-title: "Evolution de la démographie en Belgique"
+title: "Évolution de la démographie en Belgique"
 author: "___"
 date: "`r Sys.Date()`"
 format:
@@ -11,13 +11,13 @@ editor: visual
 lang: fr
 ---
 
-# Introduction
+# Introduction et but
 
-Dans le cadre de cette analyse approfondie, nous nous pencherons sur l'évolution démographique de la Belgique de 1992 à 2023. Ce rapport vise à étudier la composition de la population belge au fil des ans.
+L'office belge de statistique Statbel (<https://statbel.fgov.be/fr/propos-de-statbel>) diffuse des données sur l'économie, la société et le territoire. Parmi ces données nous utiliserons celles relatives au recensement de la population dans les trois régions de Belgique. Notre objectif est de décrire la démographie de la population belge au fil des ans.
 
 # Matériel et méthodes
 
-Les données sont mises à disposition pour l'office belge de statistique (Statbel). Les données ont été exportées le 3 décembre 2023. Ces dernières ont été remaniées dans le cadre de cet exercice. Les valeurs de démographie par catégorie n'ont pas été modifiées.
+Les données issues du site de Statbel ont été exportées le 3 décembre 2023. Les données brutes ont été en partie remaniées dans le cadre de cet exercice. Les valeurs de démographie par catégorie n'ont pas été modifiées.
 
 L'analyse est réalisée avec le [logiciel R](https://www.r-project.org) (`r R.version.string`) dans la [SciViews Box 2023](https://www.sciviews.org/software/svbox/). [Saturn Cloud](https://saturncloud.io) (Linux Ubuntu 22.04) est utilisé pour exécuter le code et compiler la version finale de ce bloc-notes.
 
@@ -34,58 +34,67 @@ SciViews::R(lang = "fr")
 
 ## Remaniement des données
 
-<!-- Importez les trois tableaux relatifs à la densité de population entre 1992 et 2009 en Région Wallone, en Région flamande et en Région Bruxelles-Capitale. Fusionnez ensuite ces trois tableaux en seul. -->
+Nous importons, combinons et remanions les différents jeux de données.
+
+<!-- Importez les trois tableaux relatifs à la population entre 1992 et 2009 en Région Wallone, en Région flamande et en Région Bruxelles-Capitale. Fusionnez ensuite ces trois tableaux en seul dans `pop_92`. -->
 
 ```{r pop92, record='RODFS', object='pop_92'}
 # Region Wallone
-rw_92 <-
+rw_92 <- ___
 # Région Flamande
-rf_92 <- 
+rf_92 <- ___
 # Région Bruxelles capitale
-rb_92 <- 
+rb_92 <- ___
 # Association des tableaux
-pop_92 <- 
+pop_92 <- ___
 ```
 
-<!-- Importez les trois tableaux relatifs à la densité de population entre 1992 et 2009 en Région Wallone, en Région flamande et en Région Bruxelles-Capitale. Fusionnez ensuite ces trois tableaux en seul. -->
+<!-- Importez les trois tableaux relatifs à la population entre 2010 et 2023 en Région Wallone, en Région flamande et en Région Bruxelles-Capitale. Fusionnez ensuite ces trois tableaux en seul dans `pop_10`. -->
 
 ```{r pop10, record='RODFS', object='pop_10'}
 # Region Wallone
-rw_10 <- 
+rw_10 <- ___
 # Région Flamande
-rf_10 <- 
+rf_10 <- ___
 # Région Bruxelles capitale
-rb_10 <- 
+rb_10 <- ___
 # Association des tableaux
-pop_10 <- 
+pop_10 <- ___
 ```
 
-<!-- Fusionnez le tableau pop_92 et pop_10 afin d'obtenir un seul et unique tableau. Modifiez le tableau afin de convertir toutes les variables débutant par "population" pour obtenir un tableau long avec une colonne 'year' (Année de la mesure) et une colonne 'n' (Nombre d'individus).-->
+<!-- Fusionnez les tableaux `pop_92` et `pop_10` pour en obtenir un seul nommé `pop`. Modifiez ce dernier en transformant toutes les variables débutant par "population" pour obtenir un tableau long avec, entre autres, une colonne `year` (année de la mesure) et une colonne `n` (nombre d'individus). -->
 
 ```{r join, record='RODFS', object='pop'}
-# Combinaison de deux tableaux
-pop <- 
+# Fusion des deux tableaux
+pop <- ___
 # Conversion de long à large
-pop <- 
+pop <- ___
 ```
 
-<!--% Modifiez la variable 'year' afin d'obtenir une variable numérique. Modifiez également la variable 'n' pour exprimer la population en millions d'individus.s-->
+<!--% Convertissez la variable `year` en format numérique (astuce : si vous utilisez sseparate() -vous n'êtes pas obligé- indiquer NA pour les colonnes que vous ne souhaitez pas conserver). Modifiez également la variable `n` pour exprimer la population en millions d'individus. -->
 
 ```{r mutate, record='RODFS', object='pop'}
-# Modifier la variable 'year' pour la rendre numérique
-pop <- 
+# Modification de la variable `year` pour la rendre numérique
+# et conversion de `n` en millions d'individus
+pop <- ___
+```
+
+Les données retravaillées se présentent comme suit :
+
+```{r datafinal}
+tabularise$headtail(pop)
 ```
 
 ## Description des données
 
-L'augmentation de la population belge est étudiée entre 1992 et 2023.
+L'augmentation de la population belge entre 1992 et 2023 est représentée ci-dessous.
 
 ![](figures/plot1.png)
 
 <!--% Reproduisez à l'identique le graphique ci-dessus. -->
 
 ```{r plot1, record='RNSTR', arg='labels,layers'}
-
+___
 ```
 
 ![](figures/plot2.png)
@@ -93,15 +102,16 @@ L'augmentation de la population belge est étudiée entre 1992 et 2023.
 <!--% Reproduisez à l'identique le graphique ci-dessus. -->
 
 ```{r plot2, record='RNSTR', arg='labels,layers'}
-
+___
 ```
 
-<!--% Décrivez les deux nuages de points réalisés ci-dessus.-->
+<!--% Interprétez ces deux graphiques. -->
 
 ```{r plot2comment, output='asis'}
 select_answer(r"-{
-[] -  Le nombre de femmes est plus élevé que le nombre d’hommes
-[] -  Le nombre de femmes est plus faible que le nombre d’hommes
+[] -  La population totale en Belgique a augmenté de plus de 15% en trois décénnies.
+[] -  Le nombre de femmes est plus élevé que le nombre d’hommes  en Région wallonne.
+[] -  Le nombre de femmes est plus faible que le nombre d’hommes  en Région wallonne.
 [] -  Le nombre de femmes et d’hommes est similaire en Région wallonne.
 [] -  L’augmentation au cours du temps du nombre de femmes est plus rapide que pour le nombre d’hommes.
 [] -  L’augmentation au cours du temps du nombre de femmes est plus lente que pour le nombre d’hommes . 
@@ -113,19 +123,19 @@ select_answer(r"-{
 <!--% Reproduisez à l'identique le graphique ci-dessus. -->
 
 ```{r plot3, record='RNSTR', arg='labels,layers'}
-
+___
 ```
 
 <!--% Décrivez le graphique en barres réalisé ci-dessus.-->
 
 ```{r plot3comment, output='asis'}
 select_answer(r"-{
-[] -  Le nombre de femmes et d’hommes est identique.
-[] -  Ce graphique ne permet pas de déterminer si les hommes ou les femmes sont plus importants.
-[] - La région la plus peuplée est la Région flamande
-[] - La région la plus peuplée est la Région wallonne
-[] - La région la plus peuplée est la Région de Bruxelles-Capitale
+[] -  Le nombre total de femmes et d’hommes est similaire dans les différentes régions.
+[] -  Ce graphique ne permet pas de déterminer si les hommes ou les femmes sont plus nombreux au total dans les différentes régions.
+[] - La région la plus peuplée est la Région flamande.
+[] - La région la plus peuplée est la Région wallonne.
+[] - La région la plus peuplée est la Région de Bruxelles-Capitale.
 [] - On retrouve des proportions relatives similaires d’hommes et de femmes dans les trois régions.
-[] - On retrouve des proportions relatives différentes entre les hommes et les femmes dans les trois régions. On retrouve bien plus d’hommes que de femmes en Région flamande.
-[] - On retrouve des proportions relatives différentes entre les hommes et les femmes dans les trois régions. On retrouve bien plus d’hommes que de femmes en Région wallonne.}-")
+[] - On retrouve des proportions relatives différentes entre les hommes et les femmes dans les trois régions. Il y a bien plus d’hommes que de femmes en Région flamande.
+[] - On retrouve des proportions relatives différentes entre les hommes et les femmes dans les trois régions. Il y a bien plus d’hommes que de femmes en Région wallonne.}-")
 ```

@@ -16,8 +16,8 @@ distribué sous licence [CC BY-NC-SA
 
 ## Objectif
 
-Ce projet est un projet **individuel**, **court** et **cadré**. Il
-permettra de démontrer que vous avez acquis les compétences suivantes :
+Ce projet est **individuel**, **court** et **cadré**. Il permettra de
+vérifier que vous avez acquis les compétences suivantes :
 
 - Comprendre des données à l’aide de métadonnées
 - Maîtriser l’importation de données dans différents formats
@@ -28,24 +28,24 @@ permettra de démontrer que vous avez acquis les compétences suivantes :
 
 ## Consignes
 
-Reproduisez à l’identique les 3 graphiques ci-dessous en complétant le
-document `belgium_notebook.qmd`. Les données à utiliser ne sont
+Reproduisez à l’identique les trois graphiques ci-dessous en complétant
+le document `belgium_notebook.qmd`. Les données à utiliser ne sont
 malheureusement pas proposées sous la forme d’un tableau unique. Vous
-avez à votre disposition 6 tableaux de données que vous allez devoir
+avez à votre disposition six tableaux de données que vous allez devoir
 recombiner et retravailler afin d’obtenir un tableau unique vous
 permettant de réaliser les graphiques demandés.
 
 <img src="figures/plot1.png" width="2400" /><img src="figures/plot2.png" width="2400" /><img src="figures/plot3.png" width="2400" />
 
-Compilez la version finale au format HTML. Vous avez une batterie de
-tests à votre disposition (onglet “Construire” -\> bouton “Construire
-tout”) pour vérifier l’état de votre travail. Note : utilisez ces tests
-à la fin. Concentrez-vous d’abord sur vos analyses, puis faites un rendu
-final du document lorsque tout est complété, et seulement après,
-utilisez les tests. Il est contre-productif d’activer les tests à chaque
-nouvelle ligne de code ajoutée dans votre document ! **Afin d’éviter
-tout abus d’utilisation des tests, vous ne pouvez les utiliser que dix
-fois dans ce projet.**
+Compilez la version finale au format HTML à l’iade du bouton “Rendu”.
+Vous avez une batterie de tests à votre disposition (onglet “Construire”
+-\> bouton “Construire tout”) pour vérifier l’état de votre travail.
+Note : utilisez ces tests à la fin. Concentrez-vous d’abord sur vos
+analyses, puis faites un rendu final du document lorsque tout est
+complété, et seulement après, utilisez les tests. Il est
+contre-productif d’activer les tests à chaque nouvelle ligne de code
+ajoutée dans votre document ! **Afin d’éviter tout abus d’utilisation
+des tests, vous ne pouvez les utiliser que dix fois dans ce projet.**
 
 Assurez-vous que votre document Quarto compile sans erreurs à la fin de
 votre travail **(très important : un document qui ne compile pas sans
@@ -59,8 +59,8 @@ L’office belge de statistique Statbel
 l’économie, la société et le territoire belge. Dans ce projet, vous avez
 à votre disposition des données de recensement de la population belge
 entre 1992 et 2023 issues de ce site (exportées le 3 décembre 2023) dans
-le dossier `data` et dans six fichiers distincts avec des formats variés
-:
+le dossier `data` et dans six fichiers distincts avec des formats
+variés :
 
 - `bxl_1992-2009.xlsx` : Région de Bruxelles capitale de 1992 à 2009
 - `bxl_2010-2023.xlsx` : Région de Bruxelles capitale à partir de 2010
@@ -69,7 +69,7 @@ le dossier `data` et dans six fichiers distincts avec des formats variés
 - `wallon_1992-2009.csv.xz` : Région wallonne de 1992 à 2009
 - `wallon_2010-2023.csv.xz` : Région wallonne à partir de 2010
 
-Un dictionnaire des données est également mis à votre disposition :
+Un dictionnaire des données est également mis à votre disposition :
 
 ``` r
 knitr::kable(data.io::read$csv2("data/region_meta.csv"))
@@ -83,6 +83,5 @@ knitr::kable(data.io::read$csv2("data/region_meta.csv"))
 | nationalite                  | Nationalité        | \-     | facteur   | “Belges” “non-Belges”                               | NA              | Variable à deux niveaux                                                    |
 | population_au_1_janvier_XXXX | Nombre d’individus | \-     | numérique | \-                                                  | NA              | Dénombre la densité de population en l’an XXXX.                            |
 
-L’office belge de statistique Statbel explicite la licence associée via
-le lien suivant
+Les termes de la licence relative à ces données sont accessibles ici :
 <https://statbel.fgov.be/sites/default/files/files/opendata/Licence%20open%20data_FR.pdf>

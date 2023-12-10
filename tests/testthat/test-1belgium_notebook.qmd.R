@@ -21,7 +21,7 @@ test_that("Le bloc-notes est-il compilé en un fichier final HTML ?", {
 })
 
 test_that("La structure du document est-elle conservée ?", {
-  expect_true(all(c("Introduction", "Matériel et méthodes",
+  expect_true(all(c("Introduction et but", "Matériel et méthodes",
     "Analyses", "Remaniement des données", "Description des données")
     %in% (rmd_node_sections(belgium) |> unlist() |> unique())))
   # Les sections (titres) attendues du bloc-notes ne sont pas toutes présentes
@@ -31,7 +31,7 @@ test_that("La structure du document est-elle conservée ?", {
   # d'origine dans le dépôt "template" du document (lien au début du fichier
   # README.md).
 
-  expect_true(all(c("setup", "pop92", "pop10", "join", "mutate",
+  expect_true(all(c("setup", "pop92", "pop10", "join", "mutate", "datafinal",
     "plot1", "plot2", "plot2comment", "plot3", "plot3comment")
     %in% rmd_node_label(belgium)))
   # Un ou plusieurs labels de chunks nécessaires à l'évaluation manquent
@@ -72,10 +72,10 @@ test_that("L'entête YAML a-t-il été complété ?", {
 
 test_that("Chunks 'pop92' : importation et combinaison des données de 1992 à 2009", {
   expect_true(is_identical_to_ref("pop92", "names"))
-  # Le nom des colonnes de l'objet 'pop_10' est incorrecte.
+  # Le nom des colonnes de l'objet 'pop_10' est incorrect.
   # Posez-vous la question suivante :  Avez-vous ajouté des colonnes 
   # (sbind_cols) ou des lignes (sbind_rows) ?
-  # Dans notre cas, vous devriez avoir un tableau plus long que larges.
+  # Dans notre cas, vous devriez avoir un tableau plus long que large.
 
   expect_true(is_identical_to_ref("pop92", "classes"))
   # La nature des variables (classe) dans le tableau `pop_10` est incorrecte
@@ -89,10 +89,10 @@ test_that("Chunks 'pop92' : importation et combinaison des données de 1992 à 2
 
 test_that("Chunks 'pop10' : importation et combinaison des données de 2010 à 2023", {
   expect_true(is_identical_to_ref("pop10", "names"))
-  # Le nom des colonnes de l'objet 'pop_10' est incorrecte.
+  # Le nom des colonnes de l'objet 'pop_10' est incorrect.
   # Posez-vous la question suivante :  Avez-vous ajouté des colonnes 
   # (sbind_cols) ou des lignes (sbind_rows) ?
-  # Dans notre cas, vous devriez avoir un tableau plus long que larges.
+  # Dans notre cas, vous devriez avoir un tableau plus long que large.
   
   expect_true(is_identical_to_ref("pop10", "classes"))
   # La nature des variables (classe) dans le tableau `pop_10` est incorrecte
@@ -105,26 +105,29 @@ test_that("Chunks 'pop10' : importation et combinaison des données de 2010 à 2
 
 test_that("Chunks 'join' : obtenir un tableau unique des observations de 1992 à 2023", {
   expect_true(is_identical_to_ref("join", "names"))
-  # Le nom des colonnes de l'objet 'pop' est incorrecte.
-  # Avez vous bien combiner le tableau pop_92 avec pop_10 ? N'y a t'il pas de
+  # Le nom des colonnes de l'objet 'pop' est incorrect.
+  # Avez vous bien combiner le tableau pop_92 avec pop_10 ? Avez-vous de
   # doublons dans votre tableau ?
   
   expect_true(is_identical_to_ref("join", "classes"))
   # La nature des variables (classe) dans le tableau `pop` est incorrecte
+  # La combinaidson des deux tableaux est à revoir.
   
   expect_true(is_identical_to_ref("pop10", "nrow"))
   # Le nombre de lignes dans le tableau `pop` est incorrect
-  # Dans notre cas, vous devriez avoir un tableau de 1152 lignes et 6 colonnes.
+  # Dans le cas présent, vous devriez avoir un tableau de 1152 lignes et 6
+  # colonnes.
 })
 
 test_that("Chunks 'mutate' : Calcul de nouvelles variables", {
   expect_true(is_identical_to_ref("mutate", "names"))
   # Le nom des colonnes de l'objet 'pop' est incorrecte.
-  # Ces noms doivent être identique à ceux du chunks précédent 'join'.
+  # Ces noms doivent être identique à ceux que vous aviez au chunk précédent
+  # 'join'.
   
   expect_true(is_identical_to_ref("join", "classes"))
   # La nature des variables (classe) dans le tableau `pop` est incorrecte.
-  # La variable 'year' peut être le problème. Assurez-vous que cette variable 
+  # Vérifier la variable 'year' en particulier. Assurez-vous que cette variable 
   # est bien numérique.
 })
 
