@@ -113,7 +113,7 @@ test_that("Chunks 'join' : obtenir un tableau unique des observations de 1992 à
   # La nature des variables (classe) dans le tableau `pop` est incorrecte
   # La combinaidson des deux tableaux est à revoir.
   
-  expect_true(is_identical_to_ref("pop10", "nrow"))
+  expect_true(is_identical_to_ref("join", "nrow"))
   # Le nombre de lignes dans le tableau `pop` est incorrect
   # Dans le cas présent, vous devriez avoir un tableau de 1152 lignes et 6
   # colonnes.
@@ -125,7 +125,7 @@ test_that("Chunks 'mutate' : Calcul de nouvelles variables", {
   # Ces noms doivent être identique à ceux que vous aviez au chunk précédent
   # 'join'.
   
-  expect_true(is_identical_to_ref("join", "classes"))
+  expect_true(is_identical_to_ref("mutate", "classes"))
   # La nature des variables (classe) dans le tableau `pop` est incorrecte.
   # Vérifier la variable 'year' en particulier. Assurez-vous que cette variable 
   # est bien numérique.
